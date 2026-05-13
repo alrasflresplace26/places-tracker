@@ -224,7 +224,7 @@
 
 <nav class='top-nav'>
   <span class='nav-brand'>🗺️ Places Tracker</span>
-  
+  <a href='#city-fort-lauderdale' class='nav-city'>Fort Lauderdale</a><a href='#city-sunrise' class='nav-city'>Sunrise</a>
 </nav>
 
 <div class='search-bar'>
@@ -236,15 +236,87 @@
 </div>
 
 <div class='stats-bar'>
-  <span>Last updated: <strong>never</strong></span>
-  <span>Total places: <strong>0</strong></span>
-  <span>Cities: <strong>0</strong></span>
+  <span>Last updated: <strong>2026-05-13T17:31</strong></span>
+  <span>Total places: <strong>2</strong></span>
+  <span>Cities: <strong>2</strong></span>
 </div>
 
 <div id='map'></div>
 
 <div class='main-content'>
-  <p style='padding:40px;color:#888'>No places added yet. Send an email to get started!</p>
+  
+        <section class='city-section' id='city-fort-lauderdale'>
+          <div class='city-header'>
+            <h2 class='city-name'>📍 Fort Lauderdale</h2>
+            <div class='city-stats'>
+              <span class='stat-badge'>🍽️ 1 Restaurants</span>
+              <span class='stat-badge'>🎯 0 Activities</span>
+            </div>
+          </div>
+
+          <div class='type-tabs'>
+            <button class='tab-btn active' onclick='showTab(this, "rest-Fort Lauderdale")'>🍽️ Restaurants</button>
+            <button class='tab-btn' onclick='showTab(this, "act-Fort Lauderdale")'>🎯 Activities</button>
+          </div>
+
+          <div id='rest-Fort Lauderdale' class='tab-content'>
+            
+            <div class='category-section'>
+              <h4 class='category-title rest-cat'>🍴 Sandwiches/Subs</h4>
+              <div class='cards-grid'>
+    <div class='place-card' data-type='restaurant'>
+      <div class='place-name'>WhatSub Sub Shop</div>
+      <div class='place-badges'><span class='badge badge-rest'>Sandwiches/Subs</span></div>
+      <div class='place-desc'>A sub sandwich shop located in Fort Lauderdale, Florida.</div>
+      <div class='place-address'>📍 None</div>
+      
+      <div class='place-hours'><em>Hours unknown</em></div>
+      <div class='place-links'><a href='https://maps.google.com/?q=WhatSub+Sub+Shop+Fort+Lauderdale+FL' target='_blank' class='link-btn map-btn'>📍 Maps</a></div>
+    </div>
+    </div>
+            </div>
+          </div>
+          <div id='act-Fort Lauderdale' class='tab-content' style='display:none'>
+            <p class='empty-msg'>No activities yet.</p>
+          </div>
+        </section>
+        
+        <section class='city-section' id='city-sunrise'>
+          <div class='city-header'>
+            <h2 class='city-name'>📍 Sunrise</h2>
+            <div class='city-stats'>
+              <span class='stat-badge'>🍽️ 1 Restaurants</span>
+              <span class='stat-badge'>🎯 0 Activities</span>
+            </div>
+          </div>
+
+          <div class='type-tabs'>
+            <button class='tab-btn active' onclick='showTab(this, "rest-Sunrise")'>🍽️ Restaurants</button>
+            <button class='tab-btn' onclick='showTab(this, "act-Sunrise")'>🎯 Activities</button>
+          </div>
+
+          <div id='rest-Sunrise' class='tab-content'>
+            
+            <div class='category-section'>
+              <h4 class='category-title rest-cat'>🍴 Chinese Dim Sum, Seafood</h4>
+              <div class='cards-grid'>
+    <div class='place-card' data-type='restaurant'>
+      <div class='place-name'>TEN TEN Chinese Seafood Dim Sum Restaurant</div>
+      <div class='place-badges'><span class='badge badge-rest'>Chinese Dim Sum, Seafood</span><span class='badge badge-price'>$</span></div>
+      <div class='place-desc'>Authentic Chinese dim sum restaurant in Broward County offering fresh, affordable food in a welcoming atmosphere. Recommended for lunch for the ultimate dim sum experience.</div>
+      <div class='place-address'>📍 None</div>
+      
+      <div class='place-hours'>Opens at 11:00 AM</div>
+      <div class='place-links'><a href='https://maps.google.com/?q=TEN+TEN+Chinese+Seafood+Dim+Sum+Restaurant+Sunrise+FL' target='_blank' class='link-btn map-btn'>📍 Maps</a></div>
+    </div>
+    </div>
+            </div>
+          </div>
+          <div id='act-Sunrise' class='tab-content' style='display:none'>
+            <p class='empty-msg'>No activities yet.</p>
+          </div>
+        </section>
+        
 </div>
 
 <script>
