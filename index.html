@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🗺️ Places Tracker</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root {
     --navy: #1A1A2E;
@@ -91,8 +89,6 @@
   }
   .stats-bar strong { color: var(--navy); }
 
-  /* MAP */
-  #map { height: 420px; width: 100%; border-bottom: 3px solid var(--navy); }
 
   /* MAIN */
   .main-content { max-width: 1300px; margin: 0 auto; padding: 24px; }
@@ -241,7 +237,7 @@
   <span>Cities: <strong>2</strong></span>
 </div>
 
-<div id='map'></div>
+
 
 <div class='main-content'>
   
@@ -321,36 +317,18 @@
 
 <script>
 // ── Map ───────────────────────────────────────────────────────────────────────
-const map = L.map('map').setView([27.5, -82.0], 7);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
   maxZoom: 19
-}).addTo(map);
 
-const restIcon = L.divIcon({
   html: '<div style="font-size:22px;line-height:1">🍽️</div>',
   className:'', iconSize:[28,28], iconAnchor:[14,14]
 });
-const actIcon = L.divIcon({
   html: '<div style="font-size:22px;line-height:1">🎯</div>',
   className:'', iconSize:[28,28], iconAnchor:[14,14]
 });
 
-const markers = [];
-const leafletMarkers = [];
 
-markers.forEach(m => {
-  const icon = m.type === 'restaurant' ? restIcon : actIcon;
-  const lm = L.marker([m.lat, m.lng], {icon})
-    .addTo(map)
-    .bindPopup(`<strong>${m.name}</strong><br>${m.city}<br><em>${m.popup}</em>`);
-  leafletMarkers.push({marker: lm, type: m.type});
-});
 
-if (markers.length > 0) {
-  const group = L.featureGroup(leafletMarkers.map(m => m.marker));
-  map.fitBounds(group.getBounds().pad(0.1));
-}
 
 // ── Filter & Search ───────────────────────────────────────────────────────────
 let currentFilter = 'all';
@@ -361,7 +339,6 @@ function setFilter(btn, type) {
   currentFilter = type;
   doSearch();
   // Update map markers
-  leafletMarkers.forEach(m => {
     if (type === 'all' || m.type === type) map.addLayer(m.marker);
     else map.removeLayer(m.marker);
   });
